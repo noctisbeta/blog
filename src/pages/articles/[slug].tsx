@@ -1,6 +1,4 @@
 import { gql, GraphQLClient } from "graphql-request";
-import { Head } from "next/document";
-import { Article } from "../../models/Article";
 
 
 const graphcms = new GraphQLClient(
@@ -67,10 +65,20 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
 export default function ArticleDetailPage({ article }: { article: any }) {
     return (
-        <div className='min-h-screen bg-neutral-900'>
+        <div className='min-h-screen bg-neutral-900 p-3'>
+            {/* Title */}
             <div className="flex justify-center">
-                <h1 className="text-3xl font-bold text-neutral-200 m-6">{article.title}</h1>
+                <h1 className="text-3xl font-bold text-neutral-200 m-3">{article.title}</h1>
             </div>
+
+            {/* Divider */}
+            <div className="h-px w-full bg-neutral-500"></div>
+
+            {/* Gap */}
+            <div className="h-3"></div>
+
+            {/* Content */}
+            <div className="text-neutral-200" dangerouslySetInnerHTML={{ __html: article.content.html }}></div>
         </div>
     )
 }

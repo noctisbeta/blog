@@ -46,7 +46,9 @@ export default function Home({ articles }: { articles: any }) {
       <Head>
         <title>CMS Blog</title>
         <link rel='icon' href='/favicon.ico' />
-      </Head><div className='min-h-screen bg-neutral-900'>
+      </Head>
+
+      <div className='min-h-screen bg-neutral-900'>
 
         {/* Body */}
         <div className="px-3">
@@ -64,7 +66,7 @@ export default function Home({ articles }: { articles: any }) {
           </div>
 
           {/* VGap */}
-          <div className="h-2 w-0"></div>
+          <div className="h-2"></div>
 
           {/* Divider */}
           <div className="flex justify-center">
@@ -72,7 +74,7 @@ export default function Home({ articles }: { articles: any }) {
           </div>
 
           {/* VGap */}
-          <div className="h-6 w-0"></div>
+          <div className="h-6"></div>
 
           <div className="flex flex-col gap-8 items-center">
             {articles.map((article: any) => (
@@ -86,6 +88,9 @@ export default function Home({ articles }: { articles: any }) {
                 preview={article.preview.html} />
             ))}
           </div>
+
+          {/* VGap */}
+          <div className="h-6"></div>
         </div>
       </div>
     </>
