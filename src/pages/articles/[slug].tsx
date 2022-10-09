@@ -65,7 +65,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
 export default function ArticleDetailPage({ article }: { article: any }) {
     return (
-        <div className='min-h-screen bg-neutral-900 p-3'>
+        <>
             {/* Title */}
             <div className="flex justify-center">
                 <h1 className="text-3xl font-bold text-neutral-200 m-3">{article.title}</h1>
@@ -79,6 +79,6 @@ export default function ArticleDetailPage({ article }: { article: any }) {
 
             {/* Content */}
             <div className="text-neutral-200" dangerouslySetInnerHTML={{ __html: article.content.html }}></div>
-        </div>
+        </>
     )
 }
