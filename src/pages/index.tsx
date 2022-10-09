@@ -10,7 +10,7 @@ const graphcms = new GraphQLClient(
 
 const QUERY = gql`
 {
-  articles {
+  articles(orderBy: createdAt_DESC) {
     id,
     slug,
     title,
@@ -57,10 +57,9 @@ export default function Home({ articles }: { articles: any }) {
         </div>
 
         {/* Menu */}
-        <div className="flex flex-row gap-3 justify-center">
-          <MenuButton label="DOMOV" path="/" />
-          <MenuButton label="O MENI" path="/about" />
-          <MenuButton label="KONTAKT" path="/contact" />
+        <div className="flex flex-row justify-center gap-3">
+          <MenuButton key="about" label="O MENI" path="/about" />
+          <MenuButton key="contact" label="KONTAKT" path="/contact" />
         </div>
 
         {/* VGap */}
@@ -88,7 +87,7 @@ export default function Home({ articles }: { articles: any }) {
         </div>
 
         {/* VGap */}
-        <div className="h-6"></div>
+        <div className="h-12"></div>
       </div>
     </>
   )
