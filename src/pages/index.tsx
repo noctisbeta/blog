@@ -57,10 +57,9 @@ export default function Home({ articles }: { articles: any }) {
         </div>
 
         {/* Menu */}
-        <div className="flex flex-row gap-3 justify-center">
-          <MenuButton label="DOMOV" path="/" />
-          <MenuButton label="O MENI" path="/about" />
-          <MenuButton label="KONTAKT" path="/contact" />
+        <div className="flex flex-row justify-center gap-3">
+          <MenuButton key="about" label="O MENI" path="/about" />
+          <MenuButton key="contact" label="KONTAKT" path="/contact" />
         </div>
 
         {/* VGap */}

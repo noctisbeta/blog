@@ -1,4 +1,6 @@
 import { gql, GraphQLClient } from "graphql-request";
+import BackButton from "../../components/BackButton";
+import LikeButton from "../../components/LikeButton";
 
 
 const graphcms = new GraphQLClient(
@@ -65,20 +67,38 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
 export default function ArticleDetailPage({ article }: { article: any }) {
     return (
-        <>
-            {/* Title */}
-            <div className="flex justify-center">
-                <h1 className="text-3xl font-bold text-neutral-200 m-3">{article.title}</h1>
+        <div className="px-3">
+
+            {/* Title row */}
+            <div className="flex flex-row justify-center items-center">
+                {/* Title */}
+                <h1 className="text-3xl font-bold text-neutral-200 m-6">
+                    {article.title}
+                </h1>
+                <BackButton />
             </div>
 
             {/* Divider */}
-            <div className="h-px w-full bg-neutral-500"></div>
+            <div className="flex justify-center">
+                <div className="h-px w-full bg-neutral-500"></div>
+            </div>
 
             {/* Gap */}
             <div className="h-3"></div>
 
             {/* Content */}
-            <div className="text-neutral-200" dangerouslySetInnerHTML={{ __html: article.content.html }}></div>
-        </>
+            <div className="flex justify-center items-center">
+                <div className="text-neutral-200 sm:w-2/3 md:w-1/3">
+                    <div className="text-neutral-200" dangerouslySetInnerHTML={{ __html: article.content.html }}></div>
+
+                </div>
+            </div>
+
+           <LikeButton />
+
+
+        </div>
+
+
     )
 }
