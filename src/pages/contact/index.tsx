@@ -4,7 +4,7 @@ import { gql, GraphQLClient } from "graphql-request";
 
 export default function AboutPage() {
     return (
-        <div className='min-h-screen bg-neutral-900'>
+        <>
             {/* Body */}
             <div className="px-3">
 
@@ -35,6 +35,6 @@ export default function AboutPage() {
                 {/* VGap */}
                 <div className="h-6"></div>
             </div>
-        </div>
+        </>
     )
 }

@@ -6,3 +6,8 @@
 .article-card {
   @apply rounded-lg shadow-lg shadow-neutral-600 p-3 bg-neutral-50 max-w-fit min-w-fit min-h-fit flex flex-col;
 }
+
+html {
+    --tw-bg-opacity: 1;
+    background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+}
