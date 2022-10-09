@@ -10,7 +10,7 @@ const graphcms = new GraphQLClient(
 
 const QUERY = gql`
 {
-  articles {
+  articles(orderBy: createdAt_DESC) {
     id,
     slug,
     title,
@@ -88,7 +88,7 @@ export default function Home({ articles }: { articles: any }) {
         </div>
 
         {/* VGap */}
-        <div className="h-6"></div>
+        <div className="h-12"></div>
       </div>
     </>
   )
