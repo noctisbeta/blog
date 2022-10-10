@@ -7,7 +7,7 @@ export default function PhotoArticleCard(article: Article, key: number | string)
         <div className="photo-article-card">
 
             <div className="rounded-t-lg overflow-hidden">
-                <Image src={article.image} layout="responsive" width={458} height={280} />
+                <Image src={article.image} layout="responsive" objectFit="cover" width={458} height={280} />
             </div>
 
             <div className="p-5">

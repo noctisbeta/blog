@@ -2,7 +2,20 @@ import Head from 'next/head'
 import Link from 'next/link';
 import MenuButton from '../components/MenuButton'
 import PhotoArticleCard from '../components/PhotoArticleCard';
-import { getArticlesDesc } from '../services/hygraph_api';
+import { getArticlesDesc, getArticleSlugs } from '../services/hygraph_api';
+
+export async function getStaticPaths() {
+  const articles = await getArticleSlugs();
+
+  return {
+    paths: articles.map(
+      (article: { slug: string }) => ({
+        params: { slug: article.slug }
+      })
+    ),
+    fallback: false,
+  }
+}
 
 
 export async function getStaticProps() {
