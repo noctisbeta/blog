@@ -4,18 +4,29 @@ import LikeButton from "../../components/LikeButton";
 import Image from "next/image";
 import { getArticleBySlug, getArticleSlugs } from "../../services/hygraph_api";
 
-export async function getStaticPaths() {
-    const articles = await getArticleSlugs();
+// export async function getStaticPaths() {
+//     const articles = await getArticleSlugs();
 
+//     return {
+//         paths: articles.map(
+//             (article: { slug: string }) => ({
+//                 params: { slug: article.slug }
+//             })
+//         ),
+//         fallback: "blocking",
+//     }
+// }
+
+export async function getStaticPaths() {
     return {
-        paths: articles.map(
-            (article: { slug: string }) => ({
-                params: { slug: article.slug }
-            })
-        ),
+        paths: [],
         fallback: "blocking",
     }
 }
+
+// export async function getServerSideProps() {
+
+// }
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
     const slug = params.slug;
