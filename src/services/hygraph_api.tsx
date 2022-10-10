@@ -68,3 +68,21 @@ export async function getArticleSlugs() {
 
     return articles;
 }
+
+
+export async function getAbout() {
+    const ABOUT = gql`
+    {
+        abouts {
+            about {
+                html
+            }
+        }
+    }
+    `
+    const { abouts } = await graphcms.request(ABOUT);
+
+    console.log(abouts);
+
+    return abouts[0];
+}

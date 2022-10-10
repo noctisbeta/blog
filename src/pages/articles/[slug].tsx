@@ -66,9 +66,8 @@ export default function ArticleDetailPage({ article }: { article: any }) {
                     <Image src={article.image.url} layout="responsive" width={458} height={280} />
                 </div>
 
-                <div className="my-6">
-                    <LikeButton />
-                </div>
+                <div className="h-12"></div>
+
             </div>
         </div>
 

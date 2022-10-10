@@ -1,11 +1,18 @@
-import { gql, GraphQLClient } from "graphql-request";
-import Link from "next/link";
 import BackButton from "../../components/BackButton";
-import MenuButton from "../../components/MenuButton";
+import { getAbout } from "../../services/hygraph_api";
 
+export async function getStaticProps() {
+    const { about } = await getAbout();
 
+    return {
+        props: {
+            about,
+        },
+        revalidate: 300,
+    };
+}
 
-export default function AboutPage() {
+export default function AboutPage({ about }: { about: any }) {
     return (
         <div className="px-3">
 
@@ -32,9 +39,7 @@ export default function AboutPage() {
             {/* Content */}
             <div className="flex justify-center items-center">
                 <div className="text-myblue1 sm:w-2/3 md:w-1/3">
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus labore veniam omnis illo dolores voluptatibus accusantium adipisci qui quis tempore, animi similique ipsam eveniet, libero, voluptatum porro obcaecati corrupti odit?
-                    </p>
+                    <div className="text-myblue1" dangerouslySetInnerHTML={{ __html: about.html }}></div>
                 </div>
             </div>
 
