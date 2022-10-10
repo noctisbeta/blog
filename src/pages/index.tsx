@@ -1,9 +1,8 @@
-import Head from 'next/head'
-import Link from 'next/link';
-import MenuButton from '../components/MenuButton'
-import PhotoArticleCard from '../components/PhotoArticleCard';
-import { getArticlesDesc } from '../services/hygraph_api';
-
+import Head from "next/head";
+import Link from "next/link";
+import MenuButton from "../components/MenuButton";
+import PhotoArticleCard from "../components/PhotoArticleCard";
+import { getArticlesDesc } from "../services/hygraph_api";
 
 export async function getStaticProps() {
   const articles = await getArticlesDesc();
@@ -17,18 +16,15 @@ export async function getStaticProps() {
 }
 
 export default function Home({ articles }: { articles: any }) {
-  console.log(articles);
-
   return (
     <>
       <Head>
         <title>CMS Blog</title>
-        <link rel='icon' href='/favicon.ico' />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Body */}
       <div className="px-3">
-
         {/* Title */}
         <div className="flex justify-center">
           <h1 className="text-5xl font-bold text-myblue3 m-6">Pišem ...</h1>
@@ -58,10 +54,15 @@ export default function Home({ articles }: { articles: any }) {
               id={article.id}
               slug={article.slug}
               title={article.title}
-              date={article.createdAt.split("T")[0].split("-").reverse().join(".")}
+              date={article.createdAt
+                .split("T")[0]
+                .split("-")
+                .reverse()
+                .join(".")}
               content={article.content.html}
               preview={article.preview.html}
-              image={article.image.url} />
+              image={article.image.url}
+            />
           ))}
         </div>
 
@@ -69,7 +70,5 @@ export default function Home({ articles }: { articles: any }) {
         <div className="h-12"></div>
       </div>
     </>
-  )
+  );
 }
-
-
