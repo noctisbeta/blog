@@ -12,7 +12,7 @@ export async function getStaticProps() {
     props: {
       articles,
     },
-    revalidate: 300,
+    revalidate: 60,
   };
 }
 
@@ -31,7 +31,7 @@ export default function Home({ articles }: { articles: any }) {
 
         {/* Title */}
         <div className="flex justify-center">
-          <h1 className="text-5xl font-bold text-myblue3 m-6">CMS Blog</h1>
+          <h1 className="text-5xl font-bold text-myblue3 m-6">Pišem ...</h1>
         </div>
 
         {/* Divider row with link to full article */}

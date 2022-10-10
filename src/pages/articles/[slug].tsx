@@ -25,7 +25,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
         props: {
             article,
         },
-        revalidate: 300,
+        revalidate: 60,
     };
 }
 
