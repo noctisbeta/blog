@@ -13,7 +13,7 @@ export async function getStaticPaths() {
                 params: { slug: article.slug }
             })
         ),
-        fallback: false,
+        fallback: "blocking",
     }
 }
 
