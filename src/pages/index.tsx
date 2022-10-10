@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link';
 import MenuButton from '../components/MenuButton'
 import PhotoArticleCard from '../components/PhotoArticleCard';
 import { getArticlesDesc } from '../services/hygraph_api';
@@ -33,19 +34,19 @@ export default function Home({ articles }: { articles: any }) {
           <h1 className="text-5xl font-bold text-myblue3 m-6">CMS Blog</h1>
         </div>
 
-        {/* Menu */}
-        <div className="flex flex-row justify-center gap-3">
-          <MenuButton key="about" label="O MENI" path="/about" />
-          <MenuButton key="contact" label="KONTAKT" path="/contact" />
+        {/* Divider row with link to full article */}
+        <div className="flex flex-row items-center">
+          <div className="h-px flex-1 bg-myblue1"></div>
+          <Link href={`/about`}>
+            <div className="px-4 py-2 rounded-full text-myblue1 border-myblue1 border bg-myblue4 hover:bg-myblue5 hover:cursor-pointer">
+              O MENI
+            </div>
+          </Link>
+          <div className="h-px flex-1 bg-myblue1"></div>
         </div>
 
         {/* VGap */}
         <div className="h-2"></div>
-
-        {/* Divider */}
-        <div className="flex justify-center">
-          <div className="h-px w-full bg-myblue1"></div>
-        </div>
 
         {/* VGap */}
         <div className="h-6"></div>
