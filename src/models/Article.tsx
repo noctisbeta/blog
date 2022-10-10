@@ -8,5 +8,6 @@ export class Article {
         public date: string,
         public content: string,
         public preview: string,
+        public image: string,
     ) { }
 }

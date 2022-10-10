@@ -2,6 +2,7 @@ import { gql, GraphQLClient } from 'graphql-request';
 import Head from 'next/head'
 import ArticleCard from '../components/ArticleCard'
 import MenuButton from '../components/MenuButton'
+import PhotoArticleCard from '../components/PhotoArticleCard';
 
 
 const graphcms = new GraphQLClient(
@@ -21,6 +22,9 @@ const QUERY = gql`
     preview {
       html,
     },
+    image {
+      url,
+    },
   },
 }
 `
@@ -35,12 +39,13 @@ export async function getStaticProps() {
     props: {
       articles,
     },
-    revalidate: 10,
+    revalidate: 300,
   };
 }
 
 export default function Home({ articles }: { articles: any }) {
   console.log(articles);
+
   return (
     <>
       <Head>
@@ -53,7 +58,7 @@ export default function Home({ articles }: { articles: any }) {
 
         {/* Title */}
         <div className="flex justify-center">
-          <h1 className="text-3xl font-bold text-neutral-200 m-6">CMS Blog</h1>
+          <h1 className="text-5xl font-bold text-myblue3 m-6">CMS Blog</h1>
         </div>
 
         {/* Menu */}
@@ -67,7 +72,7 @@ export default function Home({ articles }: { articles: any }) {
 
         {/* Divider */}
         <div className="flex justify-center">
-          <div className="h-px w-full bg-neutral-500"></div>
+          <div className="h-px w-full bg-myblue1"></div>
         </div>
 
         {/* VGap */}
@@ -75,14 +80,15 @@ export default function Home({ articles }: { articles: any }) {
 
         <div className="flex flex-col gap-8 items-center">
           {articles.map((article: any) => (
-            <ArticleCard
+            <PhotoArticleCard
               key={article.id}
               id={article.id}
               slug={article.slug}
               title={article.title}
               date={article.createdAt.split("T")[0].split("-").reverse().join(".")}
               content={article.content.html}
-              preview={article.preview.html} />
+              preview={article.preview.html}
+              image={article.image.url} />
           ))}
         </div>
 
