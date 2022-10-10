@@ -42,7 +42,12 @@ export default function ArticleDetailPage({ article }: { article: any }) {
           <div className="flex flex-row justify-center items-center">
             <div
               className="text-myblue1 max-w-prose"
-              dangerouslySetInnerHTML={{ __html: article.content.html }}
+              dangerouslySetInnerHTML={{
+                __html: (article.content.html as string).replaceAll(
+                  "<p></p>",
+                  "<br>"
+                ),
+              }}
             ></div>
             <div className="flex-1"></div>
           </div>
