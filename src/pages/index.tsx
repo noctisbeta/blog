@@ -1,39 +1,11 @@
-import { gql, GraphQLClient } from 'graphql-request';
 import Head from 'next/head'
-import ArticleCard from '../components/ArticleCard'
 import MenuButton from '../components/MenuButton'
 import PhotoArticleCard from '../components/PhotoArticleCard';
+import { getArticlesDesc } from '../services/hygraph_api';
 
-
-const graphcms = new GraphQLClient(
-  'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cl8zenrsn0wep01uk200n4f9o/master'
-);
-
-const QUERY = gql`
-{
-  articles(orderBy: createdAt_DESC) {
-    id,
-    slug,
-    title,
-    createdAt,
-    content {
-      html,
-    },
-    preview {
-      html,
-    },
-    image {
-      url,
-    },
-  },
-}
-`
 
 export async function getStaticProps() {
-  console.log("Getting static props");
-
-  const { articles } = await graphcms.request(QUERY);
-
+  const articles = await getArticlesDesc();
 
   return {
     props: {

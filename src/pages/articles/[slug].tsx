@@ -2,44 +2,10 @@ import { gql, GraphQLClient } from "graphql-request";
 import BackButton from "../../components/BackButton";
 import LikeButton from "../../components/LikeButton";
 import Image from "next/image";
-
-
-const graphcms = new GraphQLClient(
-    'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cl8zenrsn0wep01uk200n4f9o/master'
-);
-
-const SLUGLIST = gql`
-    {
-        articles {
-            slug
-        }
-    }
-`
-
-const QUERY = gql`
-    query Article($slug: String!) {
-        article(where: {slug: $slug}) {
-            id,
-            slug,
-            title,
-            createdAt,
-            content {
-                html,
-            },
-            preview {
-                html,
-            },
-            image {
-                url
-              },
-        }
-    }
-`
+import { getArticleBySlug, getArticleSlugs } from "../../services/hygraph_api";
 
 export async function getStaticPaths() {
-    const { articles } = await graphcms.request(SLUGLIST);
-
-    console.log(articles);
+    const articles = await getArticleSlugs();
 
     return {
         paths: articles.map(
@@ -52,13 +18,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
-    console.log("Getting static props");
-
     const slug = params.slug;
-    const data = await graphcms.request(QUERY, { slug });
-    const article = data.article;
-
-    console.log(data);
+    const article = await getArticleBySlug(slug);
 
     return {
         props: {
