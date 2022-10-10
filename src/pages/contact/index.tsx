@@ -10,7 +10,7 @@ export default function AboutPage() {
             {/* Title row */}
             <div className="flex flex-row justify-center items-center">
                 {/* Title */}
-                <h1 className="text-3xl font-bold text-neutral-200 m-6">
+                <h1 className="text-3xl font-bold text-myblue1 m-6">
                     KONTAKT
                 </h1>
                 <BackButton />
@@ -21,17 +21,19 @@ export default function AboutPage() {
 
             {/* Divider */}
             <div className="flex justify-center">
-                <div className="h-px w-full bg-neutral-500"></div>
+                <div className="h-px w-full bg-myblue1"></div>
             </div>
 
             {/* VGap */}
             <div className="h-6"></div>
 
             {/* Content */}
-            <div className="text-neutral-200">
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus labore veniam omnis illo dolores voluptatibus accusantium adipisci qui quis tempore, animi similique ipsam eveniet, libero, voluptatum porro obcaecati corrupti odit?
-                </p>
+            <div className="flex justify-center items-center">
+                <div className="text-myblue1 sm:w-2/3 md:w-1/3">
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus labore veniam omnis illo dolores voluptatibus accusantium adipisci qui quis tempore, animi similique ipsam eveniet, libero, voluptatum porro obcaecati corrupti odit?
+                    </p>
+                </div>
             </div>
 
 

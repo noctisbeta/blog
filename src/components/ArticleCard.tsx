@@ -26,9 +26,11 @@ export default function ArticleCard(article: Article, key: number | string) {
 
             {/* Divider row with link to full article */}
             <div className="mt-auto flex flex-row justify-center items-center">
-                <div className="h-px w-full bg-neutral-900 mr-4"></div>
-                <Link href={`/articles/${article.slug}`}>VEČ</Link>
-                <div className="h-px w-full bg-neutral-900 ml-4"></div>
+                <div className="h-px w-full bg-neutral-900"></div>
+                <div className=" hover:bg-neutral-200 px-4 py-2 rounded-full">
+                    <Link href={`/articles/${article.slug}`}>VEČ</Link>
+                </div>
+                <div className="h-px w-full bg-neutral-900"></div>
             </div>
         </div >
     );
