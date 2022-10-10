@@ -4,42 +4,17 @@ import LikeButton from "../../components/LikeButton";
 import Image from "next/image";
 import { getArticleBySlug, getArticleSlugs } from "../../services/hygraph_api";
 
-// export async function getStaticPaths() {
-//     const articles = await getArticleSlugs();
-
-//     return {
-//         paths: articles.map(
-//             (article: { slug: string }) => ({
-//                 params: { slug: article.slug }
-//             })
-//         ),
-//         fallback: "blocking",
-//     }
-// }
-
-export async function getStaticPaths() {
-    return {
-        paths: [],
-        fallback: "blocking",
-    }
-}
-
-// export async function getServerSideProps() {
-
-// }
-
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-    const slug = params.slug;
+export async function getServerSideProps(context: any) {
+    console.log(context);
+    const slug = context.params.slug;
     const article = await getArticleBySlug(slug);
 
     return {
         props: {
             article,
         },
-        revalidate: 60,
     };
 }
-
 
 export default function ArticleDetailPage({ article }: { article: any }) {
 
@@ -74,7 +49,7 @@ export default function ArticleDetailPage({ article }: { article: any }) {
                 </div>
 
                 <div className="rounded-lg overflow-hidden mt-6 max-w-prose w-full">
-                    <Image src={article.image.url} layout="responsive" width={458} height={280} />
+                    <Image src={article.image.url} layout="responsive" width={458} height={280} objectFit="cover" />
                 </div>
 
                 <div className="h-12"></div>
