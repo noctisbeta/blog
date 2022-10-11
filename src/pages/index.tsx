@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import MenuButton from "../components/MenuButton";
 import PhotoArticleCard from "../components/PhotoArticleCard";
 import { getArticlesDesc } from "../services/hygraph_api";
 
