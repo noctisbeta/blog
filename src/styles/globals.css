@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'palace-script';
+    src: url('../../public/PalaceScriptMT.eot'); /* IE9 Compat Modes */
+    src: url('../../public/PalaceScriptMT.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../../public/PalaceScriptMT.woff') format('woff'), /* Modern Browsers */
+         url('../../public/PalaceScriptMT.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('../../public/PalaceScriptMT.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+.palace-script {
+    font-family: 'palace-script';
+}
+
+.violin-key {
+    fill: myblue1;
+    stroke: myblue1;
+    @apply fill-myblue1;
+}
+
 .photo-article-card {
     @apply rounded-lg border border-myblue1 bg-myblue5;
     @apply min-w-full max-w-sm sm:max-w-prose;
