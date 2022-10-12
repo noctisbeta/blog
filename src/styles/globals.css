@@ -10,15 +10,51 @@
          url('../../public/PalaceScriptMT.ttf')  format('truetype'), /* Safari, Android, iOS */
          url('../../public/PalaceScriptMT.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
+@media only screen and (min-width: 1400px) {
+    .article-container {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 2rem;
+
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+
+        margin-left: 15rem;
+        margin-right: 15rem;
+
+
+        padding-left: 1rem;
+        padding-bottom: 1rem;
+        padding-bottom: 1rem;
+        align-items: baseline;
+
+
+        @media (min-width: 1400px) {
+            grid-auto-columns: 37%;
+        }
+
+        @media (min-width: 1800px) {
+            grid-auto-columns: 29%;
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 1em;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0px rgba(250, 250, 250, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(250, 250, 250, 0.2);
+    outline: 1px solid rgba(25, 25, 25, 1);
+    @apply rounded-3xl;
+}
 
 .palace-script {
     font-family: 'palace-script';
-}
-
-.violin-key {
-    fill: myblue1;
-    stroke: myblue1;
-    @apply fill-myblue1;
 }
 
 .photo-article-card {

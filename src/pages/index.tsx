@@ -85,7 +85,7 @@ export default function Home({ articles }: { articles: any }) {
         {/* VGap */}
         <div className="h-6"></div>
 
-        <div className="flex flex-col gap-8 items-center">
+        <div className="flex flex-col gap-8 items-center article-container">
           {articles.map((article: any) => (
             <PhotoArticleCard
               key={article.id}
