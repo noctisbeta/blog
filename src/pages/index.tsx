@@ -18,8 +18,14 @@ export default function Home({ articles }: { articles: any }) {
   return (
     <>
       <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <title>Pišem</title>
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Potopi se v vrtinec besed in zaplavaj med oblaki časa skozi življenje. Vsak dan nam prinaša novo zgodbo. Življenja so kot knjige. Obračamo strani, list za listom. Brez kazala." />
+        <meta name="keywords" content="Življenje, pot, ljubezen, zgodba, kolumna, književnost, knjiga, poezija, pesem, rima, čas, vesolje, sonce, glasba, Facebook, sreča, voda, zrak, žalost, zdravje, narava, beseda, besede, kultura, čas, prosti čas, pisanje, kultura, branje, čtivo, abeceda, črke" />
+        <meta name="author" content="Robi Emeršič" />
+        <link rel="icon" href="/cursive_r_blue.ico" />
       </Head>
 
       {/* Body */}
